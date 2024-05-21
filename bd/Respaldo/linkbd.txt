@@ -1,0 +1,11 @@
+https://drive.google.com/drive/u/1/folders/17-BEk-o3wYtsjhuzu0RsMdx4pfIyB38-
+C:\Program Files\SQL Anywhere 17\Bin64\dbsrv17.exe
+usuario		clave inicial
+Ana		ana
+JuanCarlos	juan
+DBA		xxx
+MariaFernanda	maria
+Paola		paola
+MarcelaCerda	marcela
+
+C:\Users\All Users\MySQL\MySQL Server 8.0\Data\rinconbotanicousuario		clave inicial

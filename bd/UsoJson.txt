@@ -1,0 +1,80 @@
+En Html pedir y recibir JSON:
+En Header
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+En Main
+<main>
+        <div id="app"> //appi interior appe exterior appa acuaticas y app p/agregar de joxcastro
+            <div v-if="mostrarLista">
+                <nav aria-label="breadcrumb">
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="index.html">Inicio</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Plantas de Interior</li>
+                    </ul>
+                </nav>
+                <h1>Plantas de interior</h1>
+                <div class="d-flex">
+                    <div v-for="planta in datosi" :key="planta.id" class="card">
+                        <p><img :src{{ImagenesLinkFoto}} :alt="planta.nomPlant"></p>
+                        <h5>{{PlantasNombre}}</h5>
+                        <p class="card-text">Descripción: {{CategoriaDescripcion}}</p>		
+			<p class="card-text">Ubicación: {{Ubicacion }}</p>
+			<p class="card-text">Sustrato: {{Sustrato}}</p>
+			<p class="card-text">Riego: {{Riego}}</p>
+			<p class="card-text">Floración: {{Floracion}}</p>
+			<p class="card-text">Tamaño: {{Tamano}}</p>
+			<p class="card-text">Observaciones: {{Observaciones}}</p>
+                    </div>
+                </div>
+            </div>
+            <div v-else>
+                <h1>No se muestran las plantas</h1>
+.....
+</main>
+Const {createApp} = Vue
+createApp ({
+	data () {
+		return {
+		url: “https://drive.google.com/drive/folders/1H58i35m73-RvUY6YHVqhedpP7TrDBcxV/RinconBotanico.mwb”
+		datos: []
+		PlantasArray: []
+		error: false,
+			}
+		},
+	methods: {
+	fetchData (url) {
+		async await fetch (url)
+				.then (response => response.json())
+				.then (
+					data => {
+						console.log(data)
+						this.datos = data
+						v-for (i on datos) {
+							v-idPlanta = {{idPlantas}}
+							v-Nombre = {{PlantasNombre}}
+							v-idCategoria = {{idCategorias}}
+							v-Descripcion = {{CategoriaDescripcion}}
+							v-LinkFoto = {{ImagenesLinkFoto}}
+							v-Ubicación = {{Ubicacion}}
+							v-Sustrato = {{Sustrato}}
+							v-Riego = {{Riego}}
+							v-Floracion = {{Floracion}}
+							v-Tamano = {{Tamano}}
+							v-Observaciones = {{Observaciones}}
+
+						v-if v-idCategoria ===1
+							this.datos[i] push datosa
+						v-elseif v-idCategoria ===2
+							this.datos[i] push datose 
+						v-else
+							this.datos[i] push datosi
+								}
+					  	 }
+				       		)
+				.catch (
+				this.error =< alert (“Uh.. se produjo un error “ + error)
+				);
+	created() {
+		this.fetchData(this.url)
+  		}
+	}
+}).mount(‘#app’)

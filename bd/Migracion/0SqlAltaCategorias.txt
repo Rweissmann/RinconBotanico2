@@ -1,0 +1,12 @@
+INSERT INTO categorias (idCategorias, CategoriasDescripcion, RangoidPlantas) VALUES (1, 'Acuaticas', '1 - 999');
+INSERT INTO categorias (idCategorias, CategoriasDescripcion, RangoidPlantas) VALUES (2, 'Exteriores', '1000 - 1999');
+INSERT INTO categorias (idCategorias, CategoriasDescripcion, RangoidPlantas) VALUES (3, 'Interiores', '2000 - 2999');
+
+
+INSERT INTO categorias (idCategorias) VALUES (1, 'Acuaticas', 'Hasta 999');
+Manual MYSQL
+INSERT INTO tbl_name (a,b,c) VALUES(1,2,3,4,5,6,7,8,9);
+
+
+
+INSERT INTO categorias (idCategorias, CategoriasDescripcion, RangoidPlantas) VALUES (1, `Acuaticas`, `1 - 999`, 2, `Exteriores`, `1000 - 1999`, 3, `Interiores`, `2000 - 2999`);
