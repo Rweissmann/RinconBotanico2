@@ -1,2 +1,0 @@
-INSERT INTO dataplantas (idPlantas, Ubicacion, Suelo, Riego, Floracion, Tamano, Observaciones) VALUES (2010, 'Soleado Sierras', 'Arcilloso', 'Abundante', 'Verano', '2 a 3 mts', 'Mucho sol, espacio y mucha bagua' );
-SELECT * FROM rinconbotanico.dataplantas;
