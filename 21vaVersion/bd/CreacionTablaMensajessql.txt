@@ -1,0 +1,15 @@
+USE RinconBotanico;
+CREATE Table mensajes (
+idmensajes INT Not Null, 
+NombreYApellido varchar(100), 
+Email varchar(150), 
+Direccion varchar(200),
+Celular varchar(16), 
+Area varchar(100), 
+Mensaje varchar(600),
+Primary Key (idmensajes)
+)
+
+
+INSERT INTO mensajes(idmensajes, NombreYApellido, Email, Direccion, Celular, Area, Mensaje) VALUES (1, 'Raul Weissmann', rweissmann@gmail.com', 'Guemes 3490 - 4to 13 - Caba', '+5491137619533', 'Cursos', 'blableta');
+INSERT INTO mensajes(idmensajes, NombreYApellido, Email, Direccion, Celular, Area, Mensaje) VALUES (2, 'Juan Carlos Hedger', jchedger@gmail.com', 'Nicasio Oroño 43 2do piso ascensor - Rosario', '+5453426508815', 'Socios Litoral', 'Quiero asociarme');

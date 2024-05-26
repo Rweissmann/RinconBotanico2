@@ -1,0 +1,3 @@
+SELECT * FROM plantas INNER JOIN dataplantas where dataplantas.idPlantas=plantas.idPlantas; 
+
+//SELECT * FROM plantas INNER JOIN dataplantas where dataplantas.idPlantas=plantas.idPlantas INNER JOIN imagenes where imagenes.idPlantas=plantas.idPlantas;
