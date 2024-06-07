@@ -1,9 +1,9 @@
-usuario		clave inicial
-Ana		ana
-JuanCarlos	juan
-DBA		xxx
-MariaFernanda	maria
-Paola		paola
-MarcelaCerda	marcela
-
+usuario		clave inicial Email
+dba		RWei10669#$	rweissmann@gmail.com
+Ana		ana		mapp81@gmail.com
+JuanCarlos	juan		TicoHelwig@gmail.com
+MariaFernanda	maria		mfergallino@gmail.com
+Paola		paola		dgpaofraticola@gmail.com
+MarcelaCerda	marcela		marcela.cerda@gmail.com
+RaulWeissmann   RWei10669#$	rweissmann@gmail.com
 C:\Users\All Users\MySQL\MySQL Server 8.0\Data\rinconbotanico

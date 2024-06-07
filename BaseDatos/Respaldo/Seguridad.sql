@@ -1,9 +1,10 @@
 use rinconbotanico;
-INSERT INTO usuarios (NombreYApellido, Email, Clave) VALUES (
-'dba', 'rweissmann@gmail.com', 'RWei10669#$',
-'RaulWeissmann', 'rweissmann@gmail.com', 'RWei10669#$',
-'AnaPeyran', 'mapp81@gmail.com', 'ana',
-'PaolaFraticola', 'dgpaofraticola@gmail.com', 'paola',
-'MariaFernandaGallino', 'mfergallino@gmail.com', 'maria',
-'JuanCarlosHelwig', 'TicoHelwig@gmail.com', 'juan');
+Select * FROM estado;
+INSERT INTO proceso (idProceso, ProcesoDescripcion) VALUES ('N', 'Pendiente No Procesado');
+Alter Table Proceso 
+
+
+
+INSERT INTO usuarios (idUsuarios, NombreYApellido, Email, Clave) VALUES (
+7, 'MariaFernandaGallino', 'mfergallino@gmail.com', 'maria');
 SELECT * FROM usuarios;
