@@ -1,0 +1,36 @@
+CREATE TABLE `usuarios` (
+  `idUsuarios` int NOT NULL AUTO_INCREMENT,
+  `Apellido y Nombre` varchar (100) NOT NULL DEFAULT 'Null', 
+  `Ciudad` varchar (80) NOT NULL DEFAULT 'Null',   
+  `Provincia` varchar (80) NOT NULL DEFAULT 'Null',   
+  `Pais` varchar (80) NOT NULL DEFAULT 'Null',   
+  `Email` varchar(150) NOT NULL DEFAULT 'Null',
+  `Clave` varchar(50) NOT NULL DEFAULT 'Null',
+  `dba` varchar(1) DEFAULT 'Null',
+  `idEstado` varchar(1) NOT NULL DEFAULT 'I',
+  `idProceso` varchar(1) NOT NULL DEFAULT 'N',
+  PRIMARY KEY (`idUsuarios`),
+  KEY `idProceso_idx` (`idProceso`),
+  KEY `idEstado` (`idEstado`),
+  CONSTRAINT `usuarios_ibfk_1` FOREIGN KEY (`idEstado`) REFERENCES `estado` (`idEstado`),
+  CONSTRAINT `usuarios_ibfk_2` FOREIGN KEY (`idProceso`) REFERENCES `proceso` (`idProceso`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+para corregiurla en lugar de crearla 
+
+ALTER TABLE `usuarios` (
+ADD `Ciudad` varchar (80) NOT NULL DEFAULT 'Null';   
+ADD `Provincia` varchar (80) NOT NULL DEFAULT 'Null';   
+ADD `Pais` varchar (80) NOT NULL DEFAULT 'Null';   
+ADD `Dba` varchar(1) DEFAULT 'Null';
+
+USE rinconbotanico;
+Update usuarios Set `Ciudad` = 'Caba' Where idUsarios<=5;
+Update usuarios Set `Ciudad` = 'Caba' Where idUsarios>=7;
+Update usuarios Set `Ciudad` = 'Rosario' Where idUsarios=6;
+Update usuarios Set `Provincia` = 'Caba' Where idUsarios<=5;
+Update usuarios Set `Provincia` = 'Caba' Where idUsarios>=7;
+Update usuarios Set `Provincia` = 'Santa Fe' Where idUsarios=6;
+Update usuarios Set `Caracter` = 'Dba' Where idUsarios>=1;
+Update usuarios Set `Pais` = 'Argentina' Where idUsarios>=1;
+Update usuarios Set `NombreYApellido` = 'Peyran, Ana' Where idUsarios=3;

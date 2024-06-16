@@ -1,0 +1,20 @@
+[
+	{
+		"idmensajes" : 1,
+		"NombreYApellido" : "Raul Weissmann",
+		"Email" : "rweissmann@gmail.com",
+		"Direccion" : "Guemes 3490 4to 13",
+		"Celular" : "+5491137619533",
+		"Area" : "Cursos",
+		"Mensaje" : "blabla"
+	},
+	{
+		"idmensajes" : 2,
+		"NombreYApellido" : "Juan Carlos Hedger",
+		"Email" : "jchedger@gmail,com",
+		"Direccion" : "Nicasio Oroño 43 3er Piso Ascensor - Rosario",
+		"Celular" : "+543426508815",
+		"Area" : "Oficina del Litoral",
+		"Mensaje" : "Quiero asociarme"
+	}
+]

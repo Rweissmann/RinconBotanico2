@@ -1,0 +1,132 @@
+git init  /*Una vez en cada directorio de transmision*/
+git config global user.name "rweissmann"
+git config global user.email "rweissmann@gmail.com"
+
+git remote add origin https://github.com/Rweissmann/RinconBotanico2.git
+git remote add 
+git push --set-upstream origin master
+
+or create a new repository on the command line
+echo "# RinconBotanico2" >> README.md
+
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/Rweissmann/RinconBotanico2.git
+git remote add origin https://github.com/Rweissmann/RinconBotanico2.git
+
+git add .
+git commit -m "NroVersion"
+git push
+git pull 
+
+git branch -M main
+git push -u origin main
+git push -u origin main
+…or push an existing repository from the command line
+
+Hasta 1 a 14 en
+https://github.com/Rweissmann/ProyectoRinconBotanico
+De 15 a 21
+https://github.com/Rweissmann/RinconBotanico2
+
+idTrx Status Array 
+JSON en Python
+{
+	"status": true,
+	"msg": "Datos Encontrados",
+	"data": {
+	(
+	"":   	,
+	"":	,
+	"":	,
+	"":	,
+	"":	,
+	"":	,
+	"":	,
+	"":	,
+	"":	,
+	"":	,
+	"":	,
+	"":	,
+	"":	
+	)
+		}
+}
+
+MySQL 8 finalmente ha llegado a la escena de los gestores de bases de datos y lo hace en plan grande; liberando entre sus nuevas características las siguientes:
+Soporte a Window Functions
+Soporte nativo a JSON Data Type
+Mejoramiento en velocidad
+Inclusión por defecto del juego de caracteres utf8mb4
+¿Por qué JSON en bases de datos relacionales?
+Dentro de la industria desde hace años, llegaron a irrumpir las bases de datos de tipo documento tales como MongoDB, las cuales mostraron que al no estar amarradas al esquema tradicional de SQL, podían ofrecer una velocidad de escritura y lectura aún muy superior a lo manejado por las bases de datos relacionales; sin embargo esa realidad se ha vuelto a modificar gracias a los últimos esfuerzos de MySQL gracias a su implementación nativa para guardar, modificar y eliminar datos en formato JSON (JavaScript Object Notation)
+Las bases de datos NoSQL (Not only SQL), se basan en un esquema flexible de datos, en los cuales no necesitas declarar o crear primero dicho esquema para comenzar a almacenar información como también no es estrictamente necesario el proceso de normalización.
+A través del siguiente ejemplo te guiaré en como implementar el almacenamiento de datos en formato JSON dentro de una base de datos relacional.
+Recomendado: Curso bases de datos desde cero.
+Al momento de hacer la declaración de tu tabla, sigues la mayoría de los pasos regulares
+Versiones de MySQL que soportan el dato tipo JSON
+MySQL 5.7
+MySQL 8
+Declaración dentro de una tabla de una columna tipo JSON
+CREATE TABLE movies(
+	 id BIGINT PRIMARY KEY AUTO_INCREMENT,
+     titulo VARCHAR(100) UNIQUE NOT NULL,
+     etiquetas JSON NOT NULL
+)ENGINE=InnoDB;
+Insertar contenido en formato JSON
+INSERT INTO movies(titulo, etiquetas) 
+VALUES('the world', '{"acerca" : {"genero": "acción", "cool": true}}');
++----+-----------+--------------------------------------------------+
+| id | titulo    | etiquetas                                        |
++----+-----------+--------------------------------------------------+
+|  2 | the world | {"acerca": {"genero": "accion", "cool": true}}   |
++----+-----------+--------------------------------------------------+
+Select con JSON\_EXTRACT
+Para poder acceder a determinados valores de nuestro JSON la función de extract nos lo facilita accediendo en el siguiente orden
+SELECT titulo, JSON_EXTRACT(etiquetas, '$.acerca.genero') AS Genero FROM movies;
++-------------+-----------+
+| titulo      | Genero    |
++-------------+-----------+
+| the world   | "accion"  |
++-------------+-----------+
+El operador corto ->brinda la misma funcionalidad que JSON\_EXTRACT
+SELECT titulo, etiquetas->'$.acerca.genero' AS Genero FROM movies;
+Actualización de registros tipo JSON
+Si bien ya tenemos datos guardados, para poder modificarlos; hacemos uso del método JSON\_REPLACE el cual requiere 3 argumentos
+El nombre de la columna
+La clave exacta a donde se va a hacer la modificación en la estructura JSON
+El valor que se va a introducir para hacer la modificación
+UPDATE movies SET etiquetas = JSON_REPLACE(etiquetas, '$.acerca.genero', 'romance') 
+WHERE titulo = 'the world';
++----+-----------+---------------------------------------------------+
+| id | titulo    | etiquetas                                         |
++----+-----------+---------------------------------------------------+
+|  2 | the world | {"acerca": {"genero": "romance", "genial": true}} |
++----+-----------+---------------------------------------------------+
+Eliminación de un registro tipo JSON
+Si ahora por ejemplo queremos eliminar un elemento, usando WHERE para comparar contra un registro tipo JSON debería ser del modo siguiente a través del método JSON\_EXTRACT
+Teniendo en cuenta que usamos JSON\_EXTRACT para extraer precisamente el valor que usaremos para comparar y luego eliminar
+DELETE FROM movies WHERE id = 1 AND JSON_EXTRACT(etiquetas, '$.acerca.genero') = "drama";
+Eliminación de un valor dentro de una estructura JSON
+Ahora en vez de eliminar un registro completo, solo deseamos eliminar el valor true de la clave genial de mi JSON; del modo siguiente
+UPDATE movies SET etiquetas = JSON_REMOVE(etiquetas, '$.acerca.genero') WHERE id = 1;
+Como puedes observar hoy más que nunca gracias a las últimas implementaciones en MySQL podemos tener datos almacenados en formato de documentos tal cual ocurre en las bases de datos no relacionales, pero con todos los beneficios que ya usamos y conocemos. Lo mejor del mundo SQL se une con el NoSQL. Si deseas conocer mas acerca de los comandos de las funciones JSON, te recomiendo el siguiente enlace con la documentación oficial: JSON functions
+
+
+Se aplica a: SQL Server 2016 (13.x) y versiones posteriores de Azure SQL DatabaseAzure SQL Managed InstanceAzure Synapse Analytics (solo grupo de SQL sin servidor)
+Aplique formato JSON a los resultados de las consultas o exporte datos de SQL Server como JSON mediante la adición de la cláusula FOR JSON a una instrucción SELECT. Use la cláusula FOR JSON para simplificar las aplicaciones cliente mediante la delegación del formato de la salida JSON desde la aplicación a SQL Server.
+ Nota
+Azure Data Studio es el editor de consultas recomendado para las consultas JSON porque da formato automáticamente a los resultados JSON, como se muestra en este artículo. SQL Server Management Studio muestra una cadena sin formato.
+Aplicar formato a resultados de consultas
+Al usar la cláusula FOR JSON, puede especificar la estructura de la salida JSON de forma explícita, o bien dejar que la estructura de la instrucción SELECT determine la salida.
+Para mantener el control total sobre el formato de la salida JSON, use FOR JSON PATH. Puede crear objetos contenedores y anidar propiedades complejas.
+Para aplicar formato a la salida JSON de forma automática según la estructura de la instrucción SELECT, use FOR JSON AUTO.
+Este es un ejemplo de una instrucción SELECT con la cláusula FOR JSON y su salida.
+Diagram showing how FOR JSON works.
+FOR JSON PATH
+FOR JSON AUTO
+Control de la salida con FOR JSON PATH
+En el modo PATH, puede usar la sintaxis de puntos (por ejemplo, Item.Price) para dar formato a la salida anidada.
+Esta es una consulta de ejemplo en la que se usa el modo PATH con la cláusula FOR JSON. En el ejemplo siguiente también se usa la opción ROOT para especificar un elemento raíz con nombre.
